@@ -2,12 +2,6 @@
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Surya Wono
