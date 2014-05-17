@@ -54,8 +54,11 @@ public abstract class HeapSort<T extends Comparable> implements Queue<T> {
     public HeapSort(HeapSort<T> m) {
         this.maxSize = m.maxSize;
         this.c = m.c;
-        this.tree=m.toArray();
-        this.heapSize=m.heapSize;
+        this.heapSize=-1;
+        tree = (T[]) new Comparable[maxSize];
+        for (T e:m){
+            this.add(e);
+        }
     }
 
     public boolean isFull() {

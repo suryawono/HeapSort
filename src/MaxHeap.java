@@ -13,37 +13,23 @@ import java.lang.reflect.Array;
 public class MaxHeap<T extends Comparable> extends HeapSort<T> {
 
     public MaxHeap(Class<T> c) {
-        this.c = c;
-        if (c != null) {
-            tree = (T[]) Array.newInstance(c, maxSize);
-        } else {
-            tree = (T[]) new Comparable[maxSize];
-        }
+        super(c);
     }
 
     public MaxHeap(Class<T> c, int maxSize) {
-        this.c = c;
-        this.maxSize = maxSize;
-        if (c != null) {
-            tree = (T[]) Array.newInstance(c, maxSize);
-        } else {
-            tree = (T[]) new Comparable[maxSize];
-        }
+        super(c,maxSize);
     }
 
     public MaxHeap() {
-        tree = (T[]) new Comparable[maxSize];
+        super();
     }
 
     public MaxHeap(int maxSize) {
-        parent(maxSize);
+        super(maxSize);
     }
 
-    public MaxHeap(MaxHeap<T> m) {
-        this.maxSize = m.maxSize;
-        this.c = m.c;
-        this.tree = m.toArray();
-        this.heapSize = m.heapSize;
+    public MaxHeap(HeapSort<T> m) {
+        super(m);
     }
 
     @Override

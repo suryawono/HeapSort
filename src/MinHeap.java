@@ -14,37 +14,23 @@ import java.lang.reflect.Array;
 public class MinHeap<T extends Comparable> extends HeapSort<T> {
 
     public MinHeap(Class<T> c) {
-        this.c = c;
-        if (c != null) {
-            tree = (T[]) Array.newInstance(c, maxSize);
-        } else {
-            tree = (T[]) new Comparable[maxSize];
-        }
+        super(c);
     }
 
     public MinHeap(Class<T> c, int maxSize) {
-        this.c = c;
-        this.maxSize = maxSize;
-        if (c != null) {
-            tree = (T[]) Array.newInstance(c, maxSize);
-        } else {
-            tree = (T[]) new Comparable[maxSize];
-        }
+        super(c,maxSize);
     }
 
     public MinHeap() {
-        tree = (T[]) new Comparable[maxSize];
+        super();
     }
 
     public MinHeap(int maxSize) {
-        parent(maxSize);
+        super(maxSize);
     }
 
-    public MinHeap(MinHeap<T> m) {
-        this.maxSize = m.maxSize;
-        this.c = m.c;
-        this.tree = m.toArray();
-        this.heapSize = m.heapSize;
+    public MinHeap(HeapSort<T> m) {
+        super(m);
     }
 
     @Override

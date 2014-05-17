@@ -16,13 +16,19 @@ public class Tester {
     
     
     public static void main(String[] args){
-        HeapSort<Integer> mh=new MaxHeap();
+        HeapSort<Integer> max=new MaxHeap();
         Random r=new Random();
         for (int i=0;i<10;i++){
-            mh.add(r.nextInt());
+            max.add(r.nextInt());
         }
-        Object[] amh=mh.toArraySorted();
-        for (Object x:amh){
+        Object[] sorted=max.toArraySorted();
+        for (Object x:sorted){
+            System.out.println(x);
+        }
+        System.out.println("=====================");
+        HeapSort<Integer> min=new MinHeap(max);
+        sorted=min.toArraySorted();
+        for (Object x:sorted){
             System.out.println(x);
         }
     }
